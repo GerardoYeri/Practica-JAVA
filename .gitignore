@@ -15,4 +15,7 @@ buildNumber.properties
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+<<<<<<< HEAD
 /.metadata/
+=======
+>>>>>>> 86a07c324ce3db89d93a1866a6d13d304e96f8b4

@@ -53,6 +53,13 @@ public class Curso {
 		this.alumnos = alumnos;
 		this.categoria = categoria;
 	}
+	
+	
+
+	public Curso(String name) {
+		super();
+		this.name = name;
+	}
 
 	public Long getId() {
 		return id;

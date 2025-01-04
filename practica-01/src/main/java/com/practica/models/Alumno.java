@@ -1,4 +1,4 @@
-package com.practica.model;
+package com.practica.models;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -61,6 +61,17 @@ public class Alumno {
 		this.legajo = legajo;
 		this.creaDateTime = LocalDateTime.now();
 		this.cursos = cursos;
+	}
+
+	
+
+
+	public Alumno(String name, String surname, int dni, String legajo) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.dni = dni;
+		this.legajo = legajo;
 	}
 
 

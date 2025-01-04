@@ -1,6 +1,7 @@
-package com.practica.model;
+package com.practica.models;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -14,7 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -37,7 +38,7 @@ public class Curso {
 	@JsonIgnore
 	private List<Alumno> alumnos = new ArrayList<>();
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Categoria categoria;
 	
 	
@@ -48,6 +49,13 @@ public class Curso {
 	}
 	
 	
+
+	public Curso(String name) {
+		super();
+		this.name = name;
+	}
+
+
 
 	public Curso(Long id, String name, List<Alumno> alumnos, Categoria categoria) {
 		super();

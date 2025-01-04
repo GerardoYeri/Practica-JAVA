@@ -1,6 +1,7 @@
-package com.practica.model;
+package com.practica.models;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -43,6 +44,13 @@ public class Categoria {
 		this.id = id;
 		this.name = name;
 		this.cursos = cursos;
+	}
+
+	
+	
+	public Categoria(String name) {
+		super();
+		this.name = name;
 	}
 
 

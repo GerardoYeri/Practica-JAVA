@@ -43,6 +43,13 @@ public class Categoria {
 		this.name = name;
 		this.cursos = cursos;
 	}
+	
+	
+
+	public Categoria(String name) {
+		super();
+		this.name = name;
+	}
 
 
 	public Long getId() {

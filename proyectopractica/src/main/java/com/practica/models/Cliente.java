@@ -1,7 +1,8 @@
 package com.practica.models;
 
-import java.time.LocalDateTime;
 
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,56 +18,47 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Alumnos")
-public class Alumno {
+@Table(name = "Clientes")
+public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "Nombre", nullable = false)
+	@Column(name = "Nombre")
 	private String name;
-	
-	@Column(name = "Apellido", nullable = false)
+
+	@Column(name = "Apellido")
 	private String surname;
 	
-	@Column(name = "DNI", unique = true, nullable = false)
-	private int dni;
+	@Column(name = "Edad")
+	private int age;
 	
-	@Column(name = "Legajo")
-	private String legajo;
+	@Column(name = "Celular")
+	private Long cel;
 	
-	@ManyToMany(mappedBy = "alumnos", fetch = FetchType.EAGER )
-	@JsonIgnore
-	private List<Curso> cursos = new ArrayList<>();
-	
+	@Column(name = "Fecha de creacion")
 	private LocalDateTime createDateTime;
+	
+	@ManyToMany(mappedBy = "clientes", fetch = FetchType.EAGER)
+	@JsonIgnore
+	private List<Producto> productos = new ArrayList<>();
 
-	public Alumno() {
+	public Cliente() {
 		super();
 		this.createDateTime = LocalDateTime.now();
 	}
 
-	public Alumno(Long id, String name, String surname, int dni, String legajo, List<Curso> cursos,
-			LocalDateTime createDateTime) {
+	public Cliente(Long id, String name, String surname, int age, Long cel, LocalDateTime createDateTime,
+			List<Producto> productos) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
-		this.dni = dni;
-		this.legajo = legajo;
-		this.cursos = cursos;
+		this.age = age;
+		this.cel = cel;
 		this.createDateTime = LocalDateTime.now();
-	}
-	
-	
-
-	public Alumno(String name, String surname, int dni, String legajo) {
-		super();
-		this.name = name;
-		this.surname = surname;
-		this.dni = dni;
-		this.legajo = legajo;
+		this.productos = productos;
 	}
 
 	public Long getId() {
@@ -93,28 +85,20 @@ public class Alumno {
 		this.surname = surname;
 	}
 
-	public int getDni() {
-		return dni;
+	public int getAge() {
+		return age;
 	}
 
-	public void setDni(int dni) {
-		this.dni = dni;
+	public void setAge(int age) {
+		this.age = age;
 	}
 
-	public String getLegajo() {
-		return legajo;
+	public Long getCel() {
+		return cel;
 	}
 
-	public void setLegajo(String legajo) {
-		this.legajo = legajo;
-	}
-
-	public List<Curso> getCursos() {
-		return cursos;
-	}
-
-	public void setCursos(List<Curso> cursos) {
-		this.cursos = cursos;
+	public void setCel(Long cel) {
+		this.cel = cel;
 	}
 
 	public LocalDateTime getCreateDateTime() {
@@ -124,7 +108,14 @@ public class Alumno {
 	public void setCreateDateTime(LocalDateTime createDateTime) {
 		this.createDateTime = createDateTime;
 	}
-	
+
+	public List<Producto> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(List<Producto> productos) {
+		this.productos = productos;
+	}
 	
 	
 }
